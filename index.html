@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pronunciagotchi</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Pronunciagotchi</h1>
+      <div class="coins">Coins: <span id="coinCount">20</span></div>
+    </header>
+
+    <section class="pet-card">
+      <div id="petAvatar" class="pet">🐣</div>
+      <div id="petMood" class="mood">Hungry & Ready to Learn!</div>
+      <div class="bars">
+        <label>Happiness: <progress id="happyBar" value="60" max="100"></progress></label>
+        <label>Hunger: <progress id="hungerBar" value="50" max="100"></progress></label>
+      </div>
+      <div class="shop">
+        <button onclick="buyItem('apple', 10)">🍎 Apple (10)</button>
+        <button onclick="buyItem('hat', 30)">🎩 Top Hat (30)</button>
+        <button onclick="buyItem('medicine', 20)">💊 Medicine (20)</button>
+      </div>
+    </section>
+
+    <section class="practice-card">
+      <select id="langSelect" onchange="nextPhrase()">
+        <option value="es-ES">Spanish (Español)</option>
+        <option value="en-US">English (US)</option>
+        <option value="pt-PT">Portuguese (Português)</option>
+        <option value="fr-FR">French (Français)</option>
+      </select>
+
+      <h2 id="targetPhrase">El gato corre rápido</h2>
+      <p id="phraseHint">The cat runs fast</p>
+
+      <div class="audio-controls">
+        <button onclick="speakTarget(1.0)">🔊 Normal</button>
+        <button onclick="speakTarget(0.65)">🐢 Slow (0.65x)</button>
+        <button onclick="nextPhrase()">⏭️ Next</button>
+      </div>
+
+      <button id="micBtn" class="mic-btn" onclick="startListening()">🎤 Tap & Speak</button>
+      <div id="feedback" class="feedback">Tap the mic and read the phrase aloud!</div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
