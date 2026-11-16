@@ -1,43 +1,63 @@
-* { box-sizing: border-box; font-family: system-ui, sans-serif; }
+* { box-sizing: border-box; font-family: system-ui, -apple-system, sans-serif; }
 body {
   margin: 0;
   background: #0f172a;
   color: #f8fafc;
   display: flex;
   justify-content: center;
-  padding: 16px;
+  padding: 14px;
 }
-.app { width: 100%; max-width: 440px; }
+.app { width: 100%; max-width: 460px; }
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
-h1 { font-size: 1.4rem; margin: 0; color: #38bdf8; }
+h1 { font-size: 1.3rem; margin: 0 0 4px; color: #38bdf8; }
+.badge {
+  background: #1e293b;
+  color: #38bdf8;
+  border: 1px solid #38bdf844;
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+}
 .coins {
   background: #1e293b;
-  padding: 6px 12px;
+  padding: 8px 14px;
   border-radius: 20px;
   font-weight: bold;
   color: #facc15;
+  font-size: 1rem;
 }
+.xp-container {
+  background: #1e293b;
+  padding: 8px 12px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+.xp-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin-bottom: 4px;
+}
+.xp-container progress { width: 100%; height: 8px; accent-color: #38bdf8; }
 .pet-card, .practice-card {
   background: #1e293b;
   border-radius: 16px;
-  padding: 16px;
-  margin-bottom: 14px;
+  padding: 14px;
+  margin-bottom: 12px;
   text-align: center;
 }
-.pet {
-  font-size: 4.5rem;
-  margin: 8px 0;
-  transition: transform 0.2s;
-}
-.pet.bounce { transform: scale(1.2); }
-.mood { font-size: 0.9rem; color: #94a3b8; margin-bottom: 10px; }
-.bars { display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; margin-bottom: 12px; }
-progress { width: 60%; accent-color: #22c55e; }
+.pet { font-size: 4rem; margin: 4px 0; transition: transform 0.2s; }
+.pet.bounce { transform: scale(1.25); }
+.mood { font-size: 0.85rem; color: #cbd5e1; margin-bottom: 8px; }
+.bars { display: flex; justify-content: space-around; font-size: 0.8rem; margin-bottom: 10px; }
+.bars progress { width: 80px; accent-color: #22c55e; }
 .shop, .audio-controls {
   display: flex;
   gap: 8px;
@@ -52,32 +72,61 @@ button {
   border-radius: 10px;
   cursor: pointer;
   font-weight: 600;
+  font-size: 0.85rem;
 }
 button:hover { background: #475569; }
+.top-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
 select {
   background: #0f172a;
   color: #fff;
   padding: 8px;
   border-radius: 8px;
   border: 1px solid #334155;
-  width: 100%;
-  margin-bottom: 10px;
+  flex: 1;
 }
-#targetPhrase { margin: 8px 0 4px; color: #38bdf8; }
-#phraseHint { margin: 0 0 12px; color: #94a3b8; font-size: 0.9rem; }
+.blind-toggle {
+  font-size: 0.8rem;
+  color: #facc15;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+.dialogue-box {
+  background: #0f172a;
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+.context-tag {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #38bdf8;
+}
+#targetPhrase { margin: 8px 0 6px; font-size: 1.25rem; color: #f8fafc; }
+#targetPhrase.blurred { filter: blur(7px); user-select: none; }
+#phraseHint { margin: 0; color: #94a3b8; font-size: 0.82rem; }
 .mic-btn {
   width: 100%;
-  margin-top: 14px;
+  margin-top: 12px;
   padding: 14px;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   background: #10b981;
 }
 .mic-btn.recording { background: #ef4444; }
 .feedback {
-  margin-top: 12px;
+  margin-top: 10px;
   padding: 10px;
   background: #0f172a;
   border-radius: 10px;
-  font-size: 0.9rem;
-  min-height: 44px;
+  font-size: 0.88rem;
+  min-height: 48px;
+  line-height: 1.4;
 }
