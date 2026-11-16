@@ -1,36 +1,38 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pronunciagotchi - RPG de Pronúncia</title>
+  <title>Pronunciagotchi - Pronunciation RPG</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- SETUP MODAL FOR FIRST RUN -->
+  <!-- SETUP MODAL FOR FIRST RUN (ENGLISH DEFAULT) -->
   <div id="setupModal" class="modal-overlay" style="display: none;">
     <div class="modal-content">
-      <h2>🎮 Bem-vindo ao Pronunciagotchi!</h2>
-      <p>Configure seu perfil para começar:</p>
+      <h2>🎮 Welcome to Pronunciagotchi!</h2>
+      <p>Set up your profile to begin:</p>
       
-      <label>Nome do seu Pet:</label>
+      <label>Your Pet's Name:</label>
       <input type="text" id="setupPetName" value="Pipoca" />
 
-      <label>Sua Língua Materna (para traduções):</label>
+      <label>Your Native Language (Mother Tongue):</label>
       <select id="setupNativeLang">
-        <option value="pt-BR">Português (Brasil)</option>
-        <option value="en-US">Inglês (English)</option>
+        <option value="en-US">English</option>
+        <option value="pt-BR">Portuguese</option>
+        <option value="es-ES">Spanish</option>
+        <option value="fr-FR">French</option>
       </select>
 
-      <button onclick="saveSetup()" class="mic-btn" style="margin-top: 15px;">Começar Aventura! 🚀</button>
+      <button onclick="saveSetup()" class="mic-btn" style="margin-top: 15px;">Start Adventure! 🚀</button>
     </div>
   </div>
 
   <div class="app">
     <header>
       <div>
-        <h1 id="levelBadge">Nível 1: Primeiras Palavras</h1>
-        <span id="headerPetInfo" class="badge">🥚 Ovo Misterioso</span>
+        <h1 id="levelBadge">Level 1: First Words</h1>
+        <span id="headerPetInfo" class="badge">🥚 Mystery Egg</span>
       </div>
       <div class="header-right">
         <div class="coins">🪙 <span id="coinCount">20</span></div>
@@ -39,7 +41,7 @@
 
     <div class="xp-container">
       <div class="xp-label">
-        <span id="xpTitle">Progresso do Ovo</span>
+        <span id="xpTitle">Egg Progress</span>
         <span id="xpText">0 / 100 XP</span>
       </div>
       <progress id="xpBar" value="0" max="100"></progress>
@@ -47,59 +49,59 @@
 
     <section class="pet-card">
       <div id="petAvatar" class="pet">🥚</div>
-      <div id="petMood" class="mood">Um ovo misterioso... Pratique para chocar!</div>
+      <div id="petMood" class="mood">A mystery egg... Practice to hatch!</div>
       <div class="bars">
-        <label>❤️ Humor: <progress id="happyBar" value="60" max="100"></progress></label>
-        <label>🍔 Fome: <progress id="hungerBar" value="50" max="100"></progress></label>
-        <label>💊 Saúde: <progress id="healthBar" value="100" max="100"></progress></label>
+        <label><span id="lblHappy">❤️ Mood:</span> <progress id="happyBar" value="60" max="100"></progress></label>
+        <label><span id="lblHunger">🍔 Hunger:</span> <progress id="hungerBar" value="50" max="100"></progress></label>
+        <label><span id="lblHealth">💊 Health:</span> <progress id="healthBar" value="100" max="100"></progress></label>
       </div>
       <div class="shop">
-        <button onclick="feedPet()">🍗 Alimentar (10)</button>
-        <button onclick="playWithPet()">🎾 Brincar (10)</button>
-        <button onclick="buyAccessory()">🕶️ Acessório (200)</button>
-        <button onclick="giveMedicine()">💊 Remédio (15)</button>
+        <button id="btnFeed" onclick="feedPet()">🍗 Feed (10)</button>
+        <button id="btnPlay" onclick="playWithPet()">🎾 Play (10)</button>
+        <button id="btnAccessory" onclick="buyAccessory()">🕶️ Accessory (200)</button>
+        <button id="btnMedicine" onclick="giveMedicine()">💊 Medicine (15)</button>
       </div>
       <div class="save-controls" style="margin-top: 10px; display: flex; gap: 6px; justify-content: center;">
-        <button onclick="exportSave()" style="font-size: 0.7rem; background: #1e293b; color: #38bdf8;">💾 Salvar Save</button>
-        <button onclick="importSave()" style="font-size: 0.7rem; background: #1e293b; color: #38bdf8;">📂 Carregar Save</button>
+        <button id="btnExport" onclick="exportSave()" style="font-size: 0.7rem; background: #1e293b; color: #38bdf8;">💾 Export Save</button>
+        <button id="btnImport" onclick="importSave()" style="font-size: 0.7rem; background: #1e293b; color: #38bdf8;">📂 Import Save</button>
       </div>
     </section>
 
     <section class="practice-card">
       <div class="top-controls">
         <select id="langSelect" onchange="loadNextPhrase()">
-          <option value="pt-BR" selected>Português (Brasil)</option>
+          <option value="pt-BR">Português (Brasil)</option>
           <option value="pt-PT">Português (Portugal)</option>
-          <option value="en-US">Inglês (Americano)</option>
-          <option value="en-GB">Inglês (Britânico)</option>
-          <option value="es-ES">Espanhol</option>
-          <option value="fr-FR">Francês</option>
+          <option value="en-US" selected>English (US)</option>
+          <option value="en-GB">English (UK)</option>
+          <option value="es-ES">Español (ES)</option>
+          <option value="fr-FR">Français (FR)</option>
         </select>
 
         <label class="blind-toggle">
           <input type="checkbox" id="blindMode" onchange="toggleBlindMode()" />
-          👂 Só Ouvido
+          <span id="lblBlind">👂 Ear Only</span>
         </label>
       </div>
 
       <div class="dialogue-box">
         <div style="display: flex; justify-content: space-between; align-items: center;">
-          <span class="context-tag" id="contextTag">Saudação</span>
-          <button onclick="toggleTranslation()" style="font-size:0.7rem; padding:2px 6px; background:#1e293b; color:#38bdf8;">🌐 Tradução</button>
+          <span class="context-tag" id="contextTag">Greeting</span>
+          <button id="btnTranslate" onclick="toggleTranslation()" style="font-size:0.7rem; padding:2px 6px; background:#1e293b; color:#38bdf8;">🌐 Translate</button>
         </div>
-        <h2 id="targetPhrase">Carregando...</h2>
-        <p id="phraseHint">Dica: Fale sem travar as palavras</p>
+        <h2 id="targetPhrase">Loading...</h2>
+        <p id="phraseHint">Tip: Speak naturally</p>
         <p id="translationBox" style="font-size: 0.8rem; color: #38bdf8; margin-top: 6px; display: none;"></p>
       </div>
 
       <div class="audio-controls">
-        <button onclick="speakTarget(1.0)">🔊 Velocidade Real</button>
-        <button onclick="speakTarget(0.7)">🐢 Devagar (0.7x)</button>
-        <button onclick="loadNextPhrase()">⏭️ Pular</button>
+        <button id="btnNormalSpeed" onclick="speakTarget(1.0)">🔊 Normal Speed</button>
+        <button id="btnSlowSpeed" onclick="speakTarget(0.7)">🐢 Slow (0.7x)</button>
+        <button id="btnSkip" onclick="loadNextPhrase()">⏭️ Skip</button>
       </div>
 
-      <button id="micBtn" class="mic-btn" onclick="startListening()">🎤 Toque e Fale</button>
-      <div id="feedback" class="feedback">Ouça o áudio e repita naturalmente!</div>
+      <button id="micBtn" class="mic-btn" onclick="startListening()">🎤 Tap & Speak</button>
+      <div id="feedback" class="feedback">Listen to the audio and repeat naturally!</div>
     </section>
   </div>
 
