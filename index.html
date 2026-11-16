@@ -11,7 +11,7 @@
   <div class="app">
     <header>
       <div>
-        <h1 id="levelBadge">Nível 1: Rolê & Café</h1>
+        <h1 id="levelBadge">Nível 1: Primeiras Palavras</h1>
         <span id="headerPetInfo" class="badge">🥚 Ovo Misterioso</span>
       </div>
       <div class="header-right">
@@ -38,8 +38,12 @@
       <div class="shop">
         <button onclick="feedPet()">🍗 Alimentar (10)</button>
         <button onclick="playWithPet()">🎾 Brincar (10)</button>
-        <button onclick="buyAccessory()">🕶️ Acessório (30)</button>
+        <button onclick="buyAccessory()">🕶️ Acessório (200)</button>
         <button onclick="giveMedicine()">💊 Remédio (15)</button>
+      </div>
+      <div class="save-controls" style="margin-top: 10px; display: flex; gap: 6px; justify-content: center;">
+        <button onclick="exportSave()" style="font-size: 0.7rem; background: #1e293b; color: #38bdf8;">💾 Salvar Save</button>
+        <button onclick="importSave()" style="font-size: 0.7rem; background: #1e293b; color: #38bdf8;">📂 Carregar Save</button>
       </div>
     </section>
 
@@ -47,9 +51,11 @@
       <div class="top-controls">
         <select id="langSelect" onchange="loadNextPhrase()">
           <option value="pt-BR" selected>Português (Brasil)</option>
-          <option value="en-US">Inglês (US)</option>
-          <option value="es-ES">Espanhol (ES)</option>
-          <option value="fr-FR">Francês (FR)</option>
+          <option value="pt-PT">Português (Portugal)</option>
+          <option value="en-US">Inglês (Americano)</option>
+          <option value="en-GB">Inglês (Britânico)</option>
+          <option value="es-ES">Espanhol</option>
+          <option value="fr-FR">Francês</option>
         </select>
 
         <label class="blind-toggle">
@@ -60,7 +66,7 @@
 
       <div class="dialogue-box">
         <div style="display: flex; justify-content: space-between; align-items: center;">
-          <span class="context-tag" id="contextTag">Na lanchonete</span>
+          <span class="context-tag" id="contextTag">Saudação</span>
           <button onclick="toggleTranslation()" style="font-size:0.7rem; padding:2px 6px; background:#1e293b; color:#38bdf8;">🌐 Tradução</button>
         </div>
         <h2 id="targetPhrase">Carregando...</h2>
