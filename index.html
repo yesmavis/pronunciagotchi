@@ -10,43 +10,64 @@
 <body>
   <div class="app">
     <header>
-      <h1>Pronunciagotchi</h1>
-      <div class="coins">Coins: <span id="coinCount">20</span></div>
+      <div>
+        <h1>Pronunciagotchi</h1>
+        <span id="levelBadge" class="badge">Lvl 1: Street Food & Coffee</span>
+      </div>
+      <div class="coins">🪙 <span id="coinCount">20</span></div>
     </header>
+
+    <div class="xp-container">
+      <div class="xp-label">
+        <span>Level Progress</span>
+        <span id="xpText">0 / 100 XP</span>
+      </div>
+      <progress id="xpBar" value="0" max="100"></progress>
+    </div>
 
     <section class="pet-card">
       <div id="petAvatar" class="pet">🐣</div>
-      <div id="petMood" class="mood">Hungry & Ready to Learn!</div>
+      <div id="petMood" class="mood">Ready to chat like a native!</div>
       <div class="bars">
-        <label>Happiness: <progress id="happyBar" value="60" max="100"></progress></label>
-        <label>Hunger: <progress id="hungerBar" value="50" max="100"></progress></label>
+        <label>❤️ Mood: <progress id="happyBar" value="60" max="100"></progress></label>
+        <label>🍔 Fullness: <progress id="hungerBar" value="50" max="100"></progress></label>
       </div>
       <div class="shop">
-        <button onclick="buyItem('apple', 10)">🍎 Apple (10)</button>
-        <button onclick="buyItem('hat', 30)">🎩 Top Hat (30)</button>
-        <button onclick="buyItem('medicine', 20)">💊 Medicine (20)</button>
+        <button onclick="buyItem('snack', 10)">🌮 Taco (10)</button>
+        <button onclick="buyItem('glasses', 30)">😎 Shades (30)</button>
+        <button onclick="buyItem('energy', 20)">⚡ Coffee (20)</button>
       </div>
     </section>
 
     <section class="practice-card">
-      <select id="langSelect" onchange="nextPhrase()">
-        <option value="es-ES">Spanish (Español)</option>
-        <option value="en-US">English (US)</option>
-        <option value="pt-PT">Portuguese (Português)</option>
-        <option value="fr-FR">French (Français)</option>
-      </select>
+      <div class="top-controls">
+        <select id="langSelect" onchange="loadNextPhrase()">
+          <option value="en-US">English (Natural / Casual)</option>
+          <option value="es-ES">Spanish (Callejero / Real)</option>
+          <option value="pt-PT">Portuguese (Dia a dia)</option>
+          <option value="fr-FR">French (Familier / Courant)</option>
+        </select>
 
-      <h2 id="targetPhrase">El gato corre rápido</h2>
-      <p id="phraseHint">The cat runs fast</p>
+        <label class="blind-toggle">
+          <input type="checkbox" id="blindMode" onchange="toggleBlindMode()" />
+          👂 Ear-Only Mode
+        </label>
+      </div>
+
+      <div class="dialogue-box">
+        <span class="context-tag" id="contextTag">At a coffee shop</span>
+        <h2 id="targetPhrase">Loading...</h2>
+        <p id="phraseHint">Tip: Link the words naturally</p>
+      </div>
 
       <div class="audio-controls">
-        <button onclick="speakTarget(1.0)">🔊 Normal</button>
-        <button onclick="speakTarget(0.65)">🐢 Slow (0.65x)</button>
-        <button onclick="nextPhrase()">⏭️ Next</button>
+        <button onclick="speakTarget(1.0)">🔊 Native Speed</button>
+        <button onclick="speakTarget(0.7)">🐢 Slow (0.7x)</button>
+        <button onclick="loadNextPhrase()">⏭️ Skip</button>
       </div>
 
       <button id="micBtn" class="mic-btn" onclick="startListening()">🎤 Tap & Speak</button>
-      <div id="feedback" class="feedback">Tap the mic and read the phrase aloud!</div>
+      <div id="feedback" class="feedback">Listen first, then reply naturally!</div>
     </section>
   </div>
 
