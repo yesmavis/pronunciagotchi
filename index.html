@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- SETUP MODAL FOR FIRST RUN (ENGLISH DEFAULT) -->
+  <!-- SETUP MODAL FOR FIRST RUN -->
   <div id="setupModal" class="modal-overlay" style="display: none;">
     <div class="modal-content">
       <h2>🎮 Welcome to Pronunciagotchi!</h2>
@@ -62,8 +62,9 @@
         <button id="btnMedicine" onclick="giveMedicine()">💊 Medicine (15)</button>
       </div>
       <div class="save-controls" style="margin-top: 10px; display: flex; gap: 6px; justify-content: center;">
-        <button id="btnExport" onclick="exportSave()" style="font-size: 0.7rem; background: #1e293b; color: #38bdf8;">💾 Export Save</button>
-        <button id="btnImport" onclick="importSave()" style="font-size: 0.7rem; background: #1e293b; color: #38bdf8;">📂 Import Save</button>
+        <button id="btnBackup" onclick="downloadBackup()" style="font-size: 0.72rem; background: #1e293b; color: #38bdf8; border: 1px solid #38bdf844;">💾 Baixar Backup</button>
+        <button id="btnRestore" onclick="document.getElementById('fileInput').click()" style="font-size: 0.72rem; background: #1e293b; color: #38bdf8; border: 1px solid #38bdf844;">📂 Restaurar Arquivo</button>
+        <input type="file" id="fileInput" accept=".json" style="display: none;" onchange="restoreBackup(event)" />
       </div>
     </section>
 
