@@ -1,70 +1,131 @@
+// TOPIC DATABASE WITH DYNAMIC GENERATOR MATRICES
 const LEVELS = [
   {
     name: "Rolê, Café & Gírias",
-    "pt-BR": [
-      { ctx: "Pedindo um café", text: "Me vê um pingado e um pão na chapa com capricho", trans: "Give me a coffee with milk and toasted bread.", hint: "Junte 'me vê um' naturalmente", hard: false },
-      { ctx: "Na correria", text: "Caraca, tô super atrasado pro trampo", trans: "Damn, I'm super late for work.", hint: "'trampo' = trabalho", hard: false },
-      { ctx: "🔥 DESAFIO BOSS", text: "Mano, o trânsito tá tão emperrado que eu prefiro ir correndo do que pegar o busão lotado na hora do rush", trans: "Bro, traffic is so stuck I'd rather run than take the crowded bus at rush hour.", hint: "Frase longa e natural!", hard: true }
-    ],
-    "en-US": [
-      { ctx: "Ordering coffee", text: "Can I grab an iced coffee to go?", trans: "Posso pegar um café gelado para viagem?", hint: "Connect 'Can I'", hard: false },
-      { ctx: "🔥 BOSS CHALLENGE", text: "I honestly couldn't care less about what they think of my outfit", trans: "Sinceramente, eu não poderia estar menos preocupado com o que acham da minha roupa.", hint: "Fast natural linkage", hard: true }
-    ],
-    "es-ES": [
-      { ctx: "En la cafetería", text: "¿Me pones un café con leche para llevar?", trans: "Me dá um café com leite para levar?", hint: "Enlaza palabras", hard: false },
-      { ctx: "🔥 BOSS CHALLENGE", text: "Tío, no me digas que has perdido el autobús otra vez esta mañana", trans: "Cara, não me diga que você perdeu o ônibus de novo hoje de manhã.", hint: "Ritmo rápido", hard: true }
-    ],
-    "fr-FR": [
-      { ctx: "Au café", text: "Je voudrais un café à emporter s'il vous plaît", trans: "Eu gostaria de um café para viagem, por favor.", hint: "Liaison", hard: false },
-      { ctx: "🔥 BOSS CHALLENGE", text: "J'ai trop la dalle, on se fait un petit resto rapide ce soir ?", trans: "Estou morrendo de fome, vamos a um restaurante rápido hoje à noite?", hint: "Argot français", hard: true }
-    ]
+    "pt-BR": {
+      curated: [
+        { ctx: "Pedindo um café", text: "Me vê um pingado e um pão na chapa com capricho", trans: "Give me a coffee with milk and toasted bread.", hint: "Junte 'me vê um' naturalmente", hard: false },
+        { ctx: "Na correria", text: "Caraca, tô super atrasado pro trampo", trans: "Damn, I'm super late for work.", hint: "'trampo' = trabalho", hard: false },
+        { ctx: "🔥 DESAFIO BOSS", text: "Mano, o trânsito tá tão emperrado que eu prefiro ir correndo do que pegar o busão lotado na hora do rush", trans: "Bro, traffic is so stuck I'd rather run than take the crowded bus at rush hour.", hint: "Frase longa e natural!", hard: true }
+      ],
+      starters: ["Mano, cê viu", "Pô, eu queria muito pedir", "Nossa, tô com mó vontade de tomar", "Aandou rolando maior papo sobre"],
+      middles: ["um café bem forte", "um pão na chapa com queijo", "um suco gelado", "um salgado caprichado"],
+      endings: ["aqui na padoca", "antes de ir pro trampo", "para aguentar o turno", "nesta manhã fria"]
+    },
+    "en-US": {
+      curated: [
+        { ctx: "Ordering coffee", text: "Can I grab an iced coffee to go?", trans: "Posso pegar um café gelado para viagem?", hint: "Connect 'Can I'", hard: false },
+        { ctx: "🔥 BOSS CHALLENGE", text: "I honestly couldn't care less about what they think of my outfit", trans: "Sinceramente, eu não poderia estar menos preocupado com o que acham da minha roupa.", hint: "Fast natural linkage", hard: true }
+      ],
+      starters: ["Hey, can we grab", "I'm really craving", "Do you want", "Let's order"],
+      middles: ["some fresh donuts", "an iced macchiato", "a double espresso", "some sweet pastries"],
+      endings: ["before class starts", "down the street", "on our way back", "right now"]
+    },
+    "es-ES": {
+      curated: [
+        { ctx: "En la cafetería", text: "¿Me pones un café con leche para llevar?", trans: "Me dá um café com leite para levar?", hint: "Enlaza palabras", hard: false },
+        { ctx: "🔥 BOSS CHALLENGE", text: "Tío, no me digas que has perdido el autobús otra vez esta mañana", trans: "Cara, não me diga que você perdeu o ônibus de novo hoje de manhã.", hint: "Ritmo rápido", hard: true }
+      ],
+      starters: ["Oye, ¿vamos a por", "Tengo ganas de pedir", "Me apetece mucho", "Vamos a buscar"],
+      middles: ["un café con leche", "un cruasán caliente", "un zumo natural", "algo de comer"],
+      endings: ["por aquí cerca", "antes de entrar", "para desayunar", "con prisa"]
+    },
+    "fr-FR": {
+      curated: [
+        { ctx: "Au café", text: "Je voudrais un café à emporter s'il vous plaît", trans: "Eu gostaria de um café para viagem, por favor.", hint: "Liaison", hard: false },
+        { ctx: "🔥 BOSS CHALLENGE", text: "J'ai trop la dalle, on se fait un petit resto rapide ce soir ?", trans: "Estou morrendo de fome, vamos a um restaurante rápido hoje à noite?", hint: "Argot français", hard: true }
+      ],
+      starters: ["Dis, tu veux qu'on prenne", "J'ai trop envie de commander", "On peut s'acheter", "Viens, on prend"],
+      middles: ["un grand café", "une viennoiserie", "un jus d'orange", "un sandwich frais"],
+      endings: ["tout de suite", "pour la route", "en vitesse", "cette aprem"]
+    }
   },
   {
     name: "Trabalho & Correria",
-    "pt-BR": [
-      { ctx: "Reunião", text: "O chefe marcou call em cima da hora", trans: "The boss scheduled a last-minute call.", hint: "'Call' = reunião online", hard: false },
-      { ctx: "🔥 DESAFIO BOSS", text: "Infelizmente o cronograma tá super apertado e a gente vai ter que virar a noite", trans: "Unfortunately the schedule is super tight and we'll have to pull an all-nighter.", hint: "Mantenha o ritmo", hard: true }
-    ],
-    "en-US": [
-      { ctx: "At work", text: "I've been swamped with shifts all week", trans: "Estive lotado de turnos a semana toda.", hint: "Swamped = super ocupado", hard: false }
-    ],
-    "es-ES": [
-      { ctx: "Trabajo", text: "Tengo una reunión urgente con el jefe", trans: "Tenho uma reunião urgente com o chefe.", hint: "Fluidez", hard: false }
-    ],
-    "fr-FR": [
-      { ctx: "Au bureau", text: "Je suis débordé par le boulot aujourd'hui", trans: "Estou sobrecarregado de trabalho hoje.", hint: "Liaison", hard: false }
-    ]
+    "pt-BR": {
+      curated: [
+        { ctx: "Reunião", text: "O chefe marcou call em cima da hora", trans: "The boss scheduled a last-minute call.", hint: "'Call' = reunião online", hard: false },
+        { ctx: "🔥 DESAFIO BOSS", text: "Infelizmente o cronograma tá super apertado e a gente vai ter que virar a noite", trans: "Unfortunately the schedule is super tight and we'll have to pull an all-nighter.", hint: "Mantenha o ritmo", hard: true }
+      ],
+      starters: ["Meu chefe pediu", "A gente precisa enviar", "O prazo para entregar"],
+      middles: ["esse relatório de vendas", "a planilha atualizada", "o projeto final", "as notas da reunião"],
+      endings: ["até o fim do dia", "antes de fechar o escritório", "com urgência máxima", "para o cliente ver"]
+    },
+    "en-US": {
+      curated: [
+        { ctx: "At work", text: "I've been swamped with shifts all week", trans: "Estive lotado de turnos a semana toda.", hint: "Swamped = super ocupado", hard: false }
+      ],
+      starters: ["We need to finish", "Can you send over", "My manager asked for"],
+      middles: ["the client feedback", "the budget spreadsheet", "the weekly schedule"],
+      endings: ["by tomorrow morning", "as soon as possible", "before the team call"]
+    },
+    "es-ES": {
+      curated: [
+        { ctx: "Trabajo", text: "Tengo una reunión urgente con el jefe", trans: "Tenho uma reunião urgente com o chefe.", hint: "Fluidez", hard: false }
+      ],
+      starters: ["Tengo que terminar", "El jefe quiere revisar", "Necesitamos enviar"],
+      middles: ["el informe mensual", "los datos del cliente", "la presentación"],
+      endings: ["antes del mediodía", "para hoy mismo", "sin falta"]
+    },
+    "fr-FR": {
+      curated: [
+        { ctx: "Au bureau", text: "Je suis débordé par le boulot aujourd'hui", trans: "Estou sobrecarregado de trabalho hoje.", hint: "Liaison", hard: false }
+      ],
+      starters: ["Il faut absolument finir", "Le patron attend", "On doit envoyer"],
+      middles: ["le dossier client", "les chiffres de vente", "le compte-rendu"],
+      endings: ["avant ce soir", "pour la réunion", "rapidement"]
+    }
   },
   {
     name: "Esporte & Curtilação",
-    "pt-BR": [
-      { ctx: "Futebol", text: "E aí, vai colar no futiba mais tarde?", trans: "Hey, are you gonna show up to soccer later?", hint: "'Futiba' = futebol", hard: false },
-      { ctx: "🔥 DESAFIO BOSS", text: "O maluco meteu um golaço de calcanhar que deixou todo mundo estático", trans: "The guy scored an amazing backheel goal that left everyone stunned.", hint: "Consoantes rápidas", hard: true }
-    ],
-    "en-US": [
-      { ctx: "Gym", text: "I'm hitting the gym before work today", trans: "Vou para a academia antes do trabalho hoje.", hint: "Hit the gym", hard: false }
-    ],
-    "es-ES": [
-      { ctx: "Deporte", text: "Voy a correr un rato al parque", trans: "Vou correr um pouco no parque.", hint: "Ritmo constante", hard: false }
-    ],
-    "fr-FR": [
-      { ctx: "Sport", text: "Je vais à la salle de sport après les cours", trans: "Vou para a academia depois das aulas.", hint: "Enchainement", hard: false }
-    ]
+    "pt-BR": {
+      curated: [
+        { ctx: "Futebol", text: "E aí, vai colar no futiba mais tarde?", trans: "Hey, are you gonna show up to soccer later?", hint: "'Futiba' = futebol", hard: false },
+        { ctx: "🔥 DESAFIO BOSS", text: "O maluco meteu um golaço de calcanhar que deixou todo mundo estático", trans: "The guy scored an amazing backheel goal that left everyone stunned.", hint: "Consoantes rápidas", hard: true }
+      ],
+      starters: ["Bora treinar", "Hoje tem partida de", "Consegui vaga pra jogar"],
+      middles: ["futebol na quadra", "basquete no clube", "vôlei de praia"],
+      endings: ["logo mais à noite", "neste final de semana", "depois do expediente"]
+    },
+    "en-US": {
+      curated: [
+        { ctx: "Gym", text: "I'm hitting the gym before work today", trans: "Vou para a academia antes do trabalho hoje.", hint: "Hit the gym", hard: false }
+      ],
+      starters: ["Are you going to", "Let's play some", "We should join"],
+      middles: ["tennis on Saturday", "basketball at the park", "the local soccer match"],
+      endings: ["this weekend", "later tonight", "tomorrow morning"]
+    },
+    "es-ES": {
+      curated: [
+        { ctx: "Deporte", text: "Voy a correr un rato al parque", trans: "Vou correr um pouco no parque.", hint: "Ritmo constante", hard: false }
+      ],
+      starters: ["¿Te apetece jugar a", "Vamos a correr", "Quedamos para hacer"],
+      middles: ["fútbol en el campo", "un poco de ejercicio", "baloncesto"],
+      endings: ["esta tarde", "mañana temprano", "el sábado"]
+    },
+    "fr-FR": {
+      curated: [
+        { ctx: "Sport", text: "Je vais à la salle de sport après les cours", trans: "Vou para a academia depois das aulas.", hint: "Enchainement", hard: false }
+      ],
+      starters: ["On va faire un peu de", "Tu es chaud pour un match de", "J'ai prévu d'aller faire"],
+      middles: ["football", "basketball", "sport en salle"],
+      endings: ["ce soir", "ce week-end", "demain"]
+    }
   }
 ];
 
 const PET_DATABASE = {
   legendary: [
-    { name: "Dragão Estelar Crômico 🐉", rarity: "🌟 LENDÁRIO (1%)" },
-    { name: "Fênix de Cristal 🐦‍🔥", rarity: "🌟 LENDÁRIO (1%)" }
+    { name: "Dragão Estelar Crômico 🐉", rarity: "🌟 LENDÁRIO" },
+    { name: "Fênix de Cristal 🐦‍🔥", rarity: "🌟 LENDÁRIO" }
   ],
   epic: [
-    { name: "Lobo Cibernético 🐺", rarity: "🟣 ÉPICO (5%)" },
-    { name: "Gryphon Místico 🦅", rarity: "🟣 ÉPICO (5%)" }
+    { name: "Lobo Cibernético 🐺", rarity: "🟣 ÉPICO" },
+    { name: "Gryphon Místico 🦅", rarity: "🟣 ÉPICO" }
   ],
   rare: [
-    { name: "Panda Vermelho Gamer 🐼", rarity: "🔵 RARO (10%)" },
-    { name: "Raposa das Neves 🦊", rarity: "🔵 RARO (10%)" }
+    { name: "Panda Vermelho Gamer 🐼", rarity: "🔵 RARO" },
+    { name: "Raposa das Neves 🦊", rarity: "🔵 RARO" }
   ],
   common: [
     { name: "Pintinho Fofinho 🐣", rarity: "⚪ COMUM" },
@@ -73,7 +134,7 @@ const PET_DATABASE = {
   ]
 };
 
-let state = JSON.parse(localStorage.getItem("pronunciagotchi_fixed_v2")) || {
+let state = JSON.parse(localStorage.getItem("pronunciagotchi_matrix_v1")) || {
   petName: null,
   coins: 20,
   xp: 0,
@@ -86,7 +147,6 @@ let state = JSON.parse(localStorage.getItem("pronunciagotchi_fixed_v2")) || {
   hatchedPet: null
 };
 
-// Ask for pet name on first ever boot
 if (!state.petName) {
   let namePrompt = prompt("Escolha o nome do seu pet:", "Pipoca");
   state.petName = namePrompt ? namePrompt : "Tamagotchi";
@@ -101,13 +161,17 @@ function getRequiredXP(lvl) {
 }
 
 function saveState() {
-  localStorage.setItem("pronunciagotchi_fixed_v2", JSON.stringify(state));
+  localStorage.setItem("pronunciagotchi_matrix_v1", JSON.stringify(state));
   const lvlObj = LEVELS[(state.level - 1) % LEVELS.length];
   
-  // Clean Header format: PetName - Nível X
-  document.getElementById("petHeaderName").textContent = `${state.petName} - Nível ${state.level}`;
-  document.getElementById("levelBadge").textContent = lvlObj.name;
+  document.getElementById("levelBadge").textContent = `Nível ${state.level}: ${lvlObj.name}`;
   document.getElementById("coinCount").textContent = state.coins;
+
+  if (!state.hatchedPet) {
+    document.getElementById("headerPetInfo").textContent = `${state.petName} - 🥚 Ovo`;
+  } else {
+    document.getElementById("headerPetInfo").textContent = `${state.petName} - ${state.hatchedPet.rarity}`;
+  }
 
   const reqXP = getRequiredXP(state.level);
 
@@ -135,9 +199,9 @@ function saveState() {
 function hatchEgg(avgAccuracy) {
   const roll = Math.random() * 100;
   let pool;
-  if (roll < (1 + (avgAccuracy > 95 ? 3 : 0))) pool = PET_DATABASE.legendary;
-  else if (roll < (6 + (avgAccuracy > 90 ? 4 : 0))) pool = PET_DATABASE.epic;
-  else if (roll < (16 + (avgAccuracy > 85 ? 5 : 0))) pool = PET_DATABASE.rare;
+  if (roll < 15) pool = PET_DATABASE.legendary;
+  else if (roll < 40) pool = PET_DATABASE.epic;
+  else if (roll < 75) pool = PET_DATABASE.rare;
   else pool = PET_DATABASE.common;
 
   const chosen = pool[Math.floor(Math.random() * pool.length)];
@@ -152,13 +216,38 @@ function hatchEgg(avgAccuracy) {
 function generateFreshPhrase() {
   const lang = document.getElementById("langSelect").value;
   const lvlObj = LEVELS[(state.level - 1) % LEVELS.length];
-  const pool = lvlObj[lang] || lvlObj["pt-BR"] || lvlObj["en-US"];
+  const topicData = lvlObj[lang] || lvlObj["pt-BR"];
 
-  const unseen = pool.filter(p => !state.completed.includes(p.text));
-  if (unseen.length > 0) {
-    return unseen[Math.floor(Math.random() * unseen.length)];
+  // 50% chance to pull a hand-crafted curated phrase/boss challenge, 50% to generate a dynamic combo
+  if (Math.random() < 0.4 && topicData.curated && topicData.curated.length > 0) {
+    const unseenCurated = topicData.curated.filter(p => !state.completed.includes(p.text));
+    if (unseenCurated.length > 0) {
+      return unseenCurated[Math.floor(Math.random() * unseenCurated.length)];
+    }
   }
-  return pool[Math.floor(Math.random() * pool.length)];
+
+  // Generate dynamic unique combination from matrix
+  if (topicData.starters && topicData.middles && topicData.endings) {
+    for (let i = 0; i < 30; i++) {
+      const s = topicData.starters[Math.floor(Math.random() * topicData.starters.length)];
+      const m = topicData.middles[Math.floor(Math.random() * topicData.middles.length)];
+      const e = topicData.endings[Math.floor(Math.random() * topicData.endings.length)];
+      const text = `${s} ${m} ${e}`;
+
+      if (!state.completed.includes(text)) {
+        return {
+          ctx: "Conversa Dinâmica",
+          text: text,
+          trans: "Tradução gerada contextualmente para treino fluído.",
+          hint: "Fale direto, ligando as palavras de forma natural",
+          hard: false
+        };
+      }
+    }
+  }
+
+  // Fallback
+  return topicData.curated[0];
 }
 
 function loadNextPhrase() {
@@ -326,7 +415,6 @@ function playMyVoice() {
   if (lastAudioURL) new Audio(lastAudioURL).play();
 }
 
-// Tamagotchi Action Buttons
 function feedPet() {
   if (state.coins < 10) { alert("Moedas insuficientes!"); return; }
   state.coins -= 10;
