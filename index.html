@@ -4,10 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pronunciagotchi - RPG de Pronúncia</title>
-  <link rel="manifest" href="manifest.json" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- SETUP MODAL FOR FIRST RUN -->
+  <div id="setupModal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+      <h2>🎮 Bem-vindo ao Pronunciagotchi!</h2>
+      <p>Configure seu perfil para começar:</p>
+      
+      <label>Nome do seu Pet:</label>
+      <input type="text" id="setupPetName" value="Pipoca" />
+
+      <label>Sua Língua Materna (para traduções):</label>
+      <select id="setupNativeLang">
+        <option value="pt-BR">Português (Brasil)</option>
+        <option value="en-US">Inglês (English)</option>
+      </select>
+
+      <button onclick="saveSetup()" class="mic-btn" style="margin-top: 15px;">Começar Aventura! 🚀</button>
+    </div>
+  </div>
+
   <div class="app">
     <header>
       <div>
