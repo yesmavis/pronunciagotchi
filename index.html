@@ -11,7 +11,7 @@
   <div class="app">
     <header>
       <div>
-        <h1>Pronunciagotchi</h1>
+        <h1 id="petHeaderName">Pronunciagotchi</h1>
         <span id="levelBadge" class="badge">Nível 1: Rolê & Café</span>
       </div>
       <div class="coins">🪙 <span id="coinCount">20</span></div>
@@ -31,21 +31,23 @@
       <div class="bars">
         <label>❤️ Humor: <progress id="happyBar" value="60" max="100"></progress></label>
         <label>🍔 Fome: <progress id="hungerBar" value="50" max="100"></progress></label>
+        <label>💊 Saúde: <progress id="healthBar" value="100" max="100"></progress></label>
       </div>
       <div class="shop">
-        <button onclick="buyItem('snack', 10)">coxinha 🍗 (10)</button>
-        <button onclick="buyItem('glasses', 30)">óculos 🕶️ (30)</button>
-        <button onclick="buyItem('energy', 20)">café ☕ (20)</button>
+        <button onclick="feedPet()">🍗 Alimentar (10)</button>
+        <button onclick="playWithPet()">🎾 Brincar (10)</button>
+        <button onclick="buyAccessory()">🕶️ Acessório (30)</button>
+        <button onclick="giveMedicine()">💊 Remédio (15)</button>
       </div>
     </section>
 
     <section class="practice-card">
       <div class="top-controls">
         <select id="langSelect" onchange="loadNextPhrase()">
-          <option value="pt-BR" selected>Português (Brasil - Gírias & Dia a dia)</option>
-          <option value="en-US">Inglês (Natural / Casual)</option>
-          <option value="es-ES">Espanhol (Callejero)</option>
-          <option value="fr-FR">Francês (Familier)</option>
+          <option value="pt-BR" selected>Português (Brasil)</option>
+          <option value="en-US">Inglês (US)</option>
+          <option value="es-ES">Espanhol (ES)</option>
+          <option value="fr-FR">Francês (FR)</option>
         </select>
 
         <label class="blind-toggle">
@@ -55,9 +57,13 @@
       </div>
 
       <div class="dialogue-box">
-        <span class="context-tag" id="contextTag">Na lanchonete</span>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span class="context-tag" id="contextTag">Na lanchonete</span>
+          <button onclick="toggleTranslation()" style="font-size:0.7rem; padding:2px 6px; background:#1e293b; color:#38bdf8;">🌐 Tradução</button>
+        </div>
         <h2 id="targetPhrase">Carregando...</h2>
         <p id="phraseHint">Dica: Fale sem travar as palavras</p>
+        <p id="translationBox" style="font-size: 0.8rem; color: #38bdf8; margin-top: 6px; display: none;"></p>
       </div>
 
       <div class="audio-controls">
