@@ -15,8 +15,8 @@ const UI_STRINGS = {
     btnPlay: "🎾 Play (10)",
     btnAccessory: "🕶️ Accessory (200)",
     btnMedicine: "💊 Medicine (15)",
-    btnExport: "💾 Export Save",
-    btnImport: "📂 Import Save",
+    btnBackup: "💾 Backup Pet",
+    btnRestore: "📂 Restore File",
     lblBlind: "👂 Ear Only",
     btnTranslate: "🌐 Translate",
     btnNormalSpeed: "🔊 Normal Speed",
@@ -41,11 +41,9 @@ const UI_STRINGS = {
     listenVoice: "🎧 Hear My Voice",
     levelUp: (name, lvl) => `🎊 <strong>LEVEL UP! ${name} reached Level ${lvl}!</strong>`,
     eggHatched: (rarity, petInfo, name) => `🎉 THE EGG HATCHED!\n\nYou hatched a ${rarity} pet:\n${petInfo}!\n\n${name} will now join your studies!`,
-    exportSuccess: "✅ Save code copied to your clipboard!",
-    exportPrompt: "Copy this save code to restore your progress on another device:",
-    importPrompt: "Paste your save code here:",
-    importSuccess: "Progress restored! Reloading...",
-    importError: "Invalid code!",
+    backupSuccess: "💾 Backup downloaded successfully! Keep this file if you want to switch devices.",
+    restoreSuccess: "🎉 Progress successfully restored! Reloading...",
+    restoreError: "❌ Invalid backup file.",
     browserAlert: "Please use Google Chrome or Microsoft Edge."
   },
   "pt-BR": {
@@ -64,8 +62,8 @@ const UI_STRINGS = {
     btnPlay: "🎾 Brincar (10)",
     btnAccessory: "🕶️ Acessório (200)",
     btnMedicine: "💊 Remédio (15)",
-    btnExport: "💾 Salvar Save",
-    btnImport: "📂 Carregar Save",
+    btnBackup: "💾 Baixar Backup",
+    btnRestore: "📂 Restaurar Arquivo",
     lblBlind: "👂 Só Ouvido",
     btnTranslate: "🌐 Tradução",
     btnNormalSpeed: "🔊 Velocidade Real",
@@ -90,11 +88,9 @@ const UI_STRINGS = {
     listenVoice: "🎧 Ouvir Minha Voz",
     levelUp: (name, lvl) => `🎊 <strong>LEVEL UP! ${name} subiu para o Nível ${lvl}!</strong>`,
     eggHatched: (rarity, petInfo, name) => `🎉 O OVO RACHOU!\n\nVocê chocou um pet ${rarity}:\n${petInfo}!\n\nAgora ${name} vai te acompanhar nos estudos!`,
-    exportSuccess: "✅ Código de save copiado!",
-    exportPrompt: "Copie este código para restaurar seu progresso em outro aparelho:",
-    importPrompt: "Cole seu código de salvamento aqui:",
-    importSuccess: "Progresso restaurado! Recarregando...",
-    importError: "Código inválido!",
+    backupSuccess: "💾 Backup baixado com sucesso! Guarde este arquivo se quiser mudar de aparelho.",
+    restoreSuccess: "🎉 Progresso restaurado com sucesso! Recarregando...",
+    restoreError: "❌ Arquivo de backup inválido.",
     browserAlert: "Use o Google Chrome ou Microsoft Edge."
   },
   "es-ES": {
@@ -113,8 +109,8 @@ const UI_STRINGS = {
     btnPlay: "🎾 Jugar (10)",
     btnAccessory: "🕶️ Accesorio (200)",
     btnMedicine: "💊 Medicina (15)",
-    btnExport: "💾 Guardar Partida",
-    btnImport: "📂 Cargar Partida",
+    btnBackup: "💾 Copia de Seguridad",
+    btnRestore: "📂 Restaurar Archivo",
     lblBlind: "👂 Solo Oído",
     btnTranslate: "🌐 Traducir",
     btnNormalSpeed: "🔊 Velocidad Normal",
@@ -139,11 +135,9 @@ const UI_STRINGS = {
     listenVoice: "🎧 Oír Mi Voz",
     levelUp: (name, lvl) => `🎊 <strong>¡SUBIDA DE NIVEL! ¡${name} subió al Nivel ${lvl}!</strong>`,
     eggHatched: (rarity, petInfo, name) => `🎉 ¡EL HUEVO ECLOSIONÓ!\n\nConseguiste una mascota ${rarity}:\n${petInfo}!\n\n¡Ahora ${name} te acompañará en tus estudios!`,
-    exportSuccess: "✅ ¡Código copiado al portapapeles!",
-    exportPrompt: "Copia este código para restaurar tu progreso en otro dispositivo:",
-    importPrompt: "Pega tu código de guardado aquí:",
-    importSuccess: "¡Progreso restaurado! Recargando...",
-    importError: "¡Código inválido!",
+    backupSuccess: "💾 ¡Copia descargada con éxito! Guárdala si cambias de dispositivo.",
+    restoreSuccess: "🎉 ¡Progreso restaurado con éxito! Recargando...",
+    restoreError: "❌ Archivo de respaldo inválido.",
     browserAlert: "Por favor usa Google Chrome o Microsoft Edge."
   },
   "fr-FR": {
@@ -162,8 +156,8 @@ const UI_STRINGS = {
     btnPlay: "🎾 Jouer (10)",
     btnAccessory: "🕶️ Accessoire (200)",
     btnMedicine: "💊 Soigner (15)",
-    btnExport: "💾 Sauvegarder",
-    btnImport: "📂 Charger",
+    btnBackup: "💾 Sauvegarder",
+    btnRestore: "📂 Restaurer",
     lblBlind: "👂 À l'oreille",
     btnTranslate: "🌐 Traduire",
     btnNormalSpeed: "🔊 Vitesse Normale",
@@ -188,16 +182,13 @@ const UI_STRINGS = {
     listenVoice: "🎧 Écouter Ma Voix",
     levelUp: (name, lvl) => `🎊 <strong>NIVEAU SUPÉRIEUR ! ${name} passe au Niveau ${lvl} !</strong>`,
     eggHatched: (rarity, petInfo, name) => `🎉 L'ŒUF A ÉCLOS !\n\nVous avez obtenu un familier ${rarity} :\n${petInfo} !\n\n${name} vous accompagne désormais !`,
-    exportSuccess: "✅ Code copié dans le presse-papiers !",
-    exportPrompt: "Copiez ce code pour restaurer votre progression ailleurs :",
-    importPrompt: "Collez votre code de sauvegarde ici :",
-    importSuccess: "Progression restaurée ! Rechargement...",
-    importError: "Code invalide !",
+    backupSuccess: "💾 Sauvegarde téléchargée ! Conservez ce fichier si vous changez d'appareil.",
+    restoreSuccess: "🎉 Progression restaurée avec succès ! Rechargement...",
+    restoreError: "❌ Fichier de sauvegarde invalide.",
     browserAlert: "Veuillez utiliser Google Chrome ou Microsoft Edge."
   }
 };
 
-// 100% AUTHENTIC, GRAMMATICALLY COMPLETE PHRASES + NATIVE TRANSLATIONS
 const PHRASE_BANK = {
   "pt-BR": [
     {
@@ -471,7 +462,7 @@ const PET_DATABASE = {
   ]
 };
 
-let state = JSON.parse(localStorage.getItem("pronunciagotchi_clean_v1")) || {
+let state = JSON.parse(localStorage.getItem("pronunciagotchi_filebackup_v1")) || {
   petName: null,
   nativeLang: null,
   coins: 20,
@@ -498,8 +489,8 @@ function applyLocalization() {
   document.getElementById("btnPlay").textContent = ui.btnPlay;
   document.getElementById("btnAccessory").textContent = ui.btnAccessory;
   document.getElementById("btnMedicine").textContent = ui.btnMedicine;
-  document.getElementById("btnExport").textContent = ui.btnExport;
-  document.getElementById("btnImport").textContent = ui.btnImport;
+  document.getElementById("btnBackup").textContent = ui.btnBackup;
+  document.getElementById("btnRestore").textContent = ui.btnRestore;
   document.getElementById("lblBlind").textContent = ui.lblBlind;
   document.getElementById("btnTranslate").textContent = ui.btnTranslate;
   document.getElementById("btnNormalSpeed").textContent = ui.btnNormalSpeed;
@@ -539,7 +530,7 @@ function getRequiredXP(lvl) {
 }
 
 function saveState() {
-  localStorage.setItem("pronunciagotchi_clean_v1", JSON.stringify(state));
+  localStorage.setItem("pronunciagotchi_filebackup_v1", JSON.stringify(state));
   const ui = getUI();
   
   document.getElementById("levelBadge").textContent = `${ui.levelPrefix} ${state.level}: ${ui.level1Name}`;
@@ -574,30 +565,37 @@ function saveState() {
   document.getElementById("healthBar").value = state.health;
 }
 
-async function exportSave() {
+function downloadBackup() {
   const ui = getUI();
-  const saveString = btoa(JSON.stringify(state));
-  try {
-    await navigator.clipboard.writeText(saveString);
-    alert(ui.exportSuccess);
-  } catch (err) {
-    prompt(ui.exportPrompt, saveString);
-  }
+  const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(state, null, 2));
+  const downloadAnchor = document.createElement("a");
+  downloadAnchor.setAttribute("href", dataStr);
+  downloadAnchor.setAttribute("download", `${state.petName || "pronunciagotchi"}_backup.json`);
+  document.body.appendChild(downloadAnchor);
+  downloadAnchor.click();
+  downloadAnchor.remove();
+  alert(ui.backupSuccess);
 }
 
-function importSave() {
+function restoreBackup(event) {
   const ui = getUI();
-  const saveString = prompt(ui.importPrompt);
-  if (saveString) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = (e) => {
     try {
-      state = JSON.parse(atob(saveString));
+      const parsed = JSON.parse(e.target.result);
+      if (!parsed.petName) throw new Error("Invalid file");
+      state = parsed;
       saveState();
-      alert(ui.importSuccess);
+      alert(ui.restoreSuccess);
       location.reload();
-    } catch (e) {
-      alert(ui.importError);
+    } catch (err) {
+      alert(ui.restoreError);
     }
-  }
+  };
+  reader.readAsText(file);
 }
 
 function hatchEgg() {
@@ -622,7 +620,6 @@ function generateFreshPhrase() {
   const lang = document.getElementById("langSelect").value;
   const pool = PHRASE_BANK[lang] || PHRASE_BANK["en-US"];
 
-  // Avoid repeating the exact phrase currently displayed
   const candidates = pool.filter(p => !currentItem || p.text !== currentItem.text);
   const unseen = candidates.filter(p => !state.completed.includes(p.text));
 
