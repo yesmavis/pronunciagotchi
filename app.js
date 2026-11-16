@@ -70,7 +70,6 @@ const LEVELS = [
   }
 ];
 
-// NATIVE TRANSLATION DICTIONARY BASED ON USER'S MOTHER TONGUE
 const TRANSLATIONS = {
   "pt-BR": {
     "Tudo bem?": "Como estás?",
@@ -140,7 +139,7 @@ const PET_DATABASE = {
   ]
 };
 
-let state = JSON.parse(localStorage.getItem("pronunciagotchi_mother_v1")) || {
+let state = JSON.parse(localStorage.getItem("pronunciagotchi_modal_v1")) || {
   petName: null,
   nativeLang: null,
   coins: 20,
@@ -154,17 +153,26 @@ let state = JSON.parse(localStorage.getItem("pronunciagotchi_mother_v1")) || {
   hatchedPet: null
 };
 
-// Prompt user for Mother Tongue on first boot
-if (!state.nativeLang) {
-  let langChoice = prompt("Qual é a sua língua materna / nativa? Digite 'pt' para Português ou 'en' para Inglês:", "pt");
-  state.nativeLang = (langChoice && langChoice.toLowerCase().startsWith("en")) ? "en-US" : "pt-BR";
+// Check if setup is needed
+window.addEventListener("DOMContentLoaded", () => {
+  if (!state.petName || !state.nativeLang) {
+    document.getElementById("setupModal").style.display = "flex";
+  } else {
+    loadNextPhrase();
+  }
   saveState();
-}
+});
 
-if (!state.petName) {
-  let namePrompt = prompt("Escolha o nome do seu pet:", "Pipoca");
-  state.petName = namePrompt ? namePrompt : "Tamagotchi";
+function saveSetup() {
+  const nameInput = document.getElementById("setupPetName").value.trim();
+  const langSelect = document.getElementById("setupNativeLang").value;
+
+  state.petName = nameInput ? nameInput : "Pipoca";
+  state.nativeLang = langSelect;
+  
+  document.getElementById("setupModal").style.display = "none";
   saveState();
+  loadNextPhrase();
 }
 
 let currentItem = null;
@@ -175,14 +183,14 @@ function getRequiredXP(lvl) {
 }
 
 function saveState() {
-  localStorage.setItem("pronunciagotchi_mother_v1", JSON.stringify(state));
+  localStorage.setItem("pronunciagotchi_modal_v1", JSON.stringify(state));
   const lvlObj = LEVELS[(state.level - 1) % LEVELS.length];
   
   document.getElementById("levelBadge").textContent = `Nível ${state.level}: ${lvlObj.name}`;
   document.getElementById("coinCount").textContent = state.coins;
 
   if (!state.hatchedPet) {
-    document.getElementById("headerPetInfo").textContent = `${state.petName} - 🥚 Ovo`;
+    document.getElementById("headerPetInfo").textContent = `${state.petName || 'Pet'} - 🥚 Ovo`;
   } else {
     document.getElementById("headerPetInfo").textContent = `${state.petName} - ${state.hatchedPet.rarity}`;
   }
@@ -285,7 +293,6 @@ function loadNextPhrase() {
   document.getElementById("targetPhrase").textContent = currentItem.text;
   document.getElementById("phraseHint").textContent = "💡 " + currentItem.hint;
   
-  // Look up translation in user's mother tongue
   const dict = TRANSLATIONS[state.nativeLang] || TRANSLATIONS["pt-BR"];
   const translatedText = dict[currentItem.text] || "Tradução indisponível para esta frase gerada.";
   document.getElementById("translationBox").textContent = "Tradução: " + translatedText;
@@ -312,7 +319,7 @@ function toggleBlindMode() {
   const isBlind = document.getElementById("blindMode").checked;
   const el = document.getElementById("targetPhrase");
   if (isBlind) el.classList.add("blurred");
-  else el.classList.remove("blurred";)
+  else el.classList.remove("blurred");
 }
 
 function speakTarget(rate) {
@@ -494,5 +501,3 @@ function bouncePet() {
   pet.classList.add("bounce");
   setTimeout(() => pet.classList.remove("bounce"), 300);
 }
-
-loadNextPhrase();
