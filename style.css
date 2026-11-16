@@ -14,7 +14,7 @@ header {
   align-items: center;
   margin-bottom: 8px;
 }
-h1 { font-size: 1.3rem; margin: 0 0 4px; color: #38bdf8; }
+h1 { font-size: 1.2rem; margin: 0 0 4px; color: #38bdf8; }
 .badge {
   background: #1e293b;
   color: #38bdf8;
@@ -56,11 +56,11 @@ h1 { font-size: 1.3rem; margin: 0 0 4px; color: #38bdf8; }
 .pet { font-size: 4rem; margin: 4px 0; transition: transform 0.2s; }
 .pet.bounce { transform: scale(1.25); }
 .mood { font-size: 0.85rem; color: #cbd5e1; margin-bottom: 8px; }
-.bars { display: flex; justify-content: space-around; font-size: 0.8rem; margin-bottom: 10px; }
-.bars progress { width: 80px; accent-color: #22c55e; }
+.bars { display: flex; justify-content: space-around; font-size: 0.75rem; margin-bottom: 10px; gap: 4px; }
+.bars progress { width: 70px; accent-color: #22c55e; display: block; margin-top: 2px; }
 .shop, .audio-controls {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -68,11 +68,11 @@ button {
   background: #334155;
   color: #fff;
   border: none;
-  padding: 8px 12px;
+  padding: 7px 10px;
   border-radius: 10px;
   cursor: pointer;
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }
 button:hover { background: #475569; }
 .top-controls {
@@ -103,6 +103,7 @@ select {
   padding: 14px;
   border-radius: 12px;
   margin-bottom: 12px;
+  text-align: left;
 }
 .context-tag {
   font-size: 0.72rem;
@@ -110,9 +111,9 @@ select {
   letter-spacing: 0.5px;
   color: #38bdf8;
 }
-#targetPhrase { margin: 8px 0 6px; font-size: 1.25rem; color: #f8fafc; }
+#targetPhrase { margin: 8px 0 6px; font-size: 1.15rem; color: #f8fafc; text-align: center; }
 #targetPhrase.blurred { filter: blur(7px); user-select: none; }
-#phraseHint { margin: 0; color: #94a3b8; font-size: 0.82rem; }
+#phraseHint { margin: 0; color: #94a3b8; font-size: 0.82rem; text-align: center; }
 .mic-btn {
   width: 100%;
   margin-top: 12px;
@@ -129,4 +130,5 @@ select {
   font-size: 0.88rem;
   min-height: 48px;
   line-height: 1.4;
+  text-align: center;
 }
