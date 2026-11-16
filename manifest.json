@@ -1,0 +1,9 @@
+{
+  "name": "Pronunciagotchi",
+  "short_name": "Pronunciagotchi",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#1e293b",
+  "theme_color": "#38bdf8",
+  "icons": []
+}
