@@ -3,32 +3,54 @@ const LEVELS = [
     name: "Iniciante: Primeiras Palavras",
     "pt-BR": {
       curated: [
-        { ctx: "Saudação", text: "Tudo bem?", trans: "Como estás?", hint: "Pergunta rápida e comum", hard: false },
-        { ctx: "Agradecimento", text: "Muito obrigado!", trans: "Muito obrigado!", hint: "Sorria ao falar", hard: false },
-        { ctx: "Cafeteria", text: "Um café, por favor", trans: "Um café, por favor.", hint: "Simples e direto", hard: false },
-        { ctx: "🔥 DESAFIO BOSS", text: "Com licença, você sabe onde fica a estação mais próxima?", trans: "Com licença, sabes onde fica a estação mais próxima?", hint: "Frase mais longa para iniciantes", hard: true }
+        { ctx: "Saudação", text: "Tudo bem?", hint: "Pergunta rápida e comum", hard: false },
+        { ctx: "Agradecimento", text: "Muito obrigado!", hint: "Sorria ao falar", hard: false },
+        { ctx: "Cafeteria", text: "Um café, por favor", hint: "Simples e direto", hard: false },
+        { ctx: "🔥 DESAFIO BOSS", text: "Com licença, você sabe onde fica a estação mais próxima?", hint: "Frase mais longa para iniciantes", hard: true }
       ],
       starters: ["Oi,", "Tudo", "Fala"],
       middles: ["bom dia", "beleza", "tudo bem"],
       endings: ["aí?", "amigo?", "por aqui?"]
     },
+    "pt-PT": {
+      curated: [
+        { ctx: "Saudação", text: "Está tudo bem?", hint: "Pergunta comum em Portugal", hard: false },
+        { ctx: "Agradecimento", text: "Muito obrigado!", hint: "Agradecimento formal", hard: false },
+        { ctx: "Café", text: "Um café, por favor", hint: "Pedido simples", hard: false },
+        { ctx: "🔥 DESAFIO BOSS", text: "Desculpe, sabe dizer-me onde fica a estação mais próxima?", hint: "Frase típica europeia", hard: true }
+      ],
+      starters: ["Olá,", "Tudo", "Diga"],
+      middles: ["bom dia", "tudo fixe", "então"],
+      endings: ["tudo bem?", "amigo?", "por aqui?"]
+    },
     "en-US": {
       curated: [
-        { ctx: "Greeting", text: "How are you?", trans: "Como estás?", hint: "Friendly greeting", hard: false },
-        { ctx: "Thanks", text: "Thank you so much!", trans: "Muito obrigado!", hint: "Express gratitude", hard: false },
-        { ctx: "Coffee", text: "One coffee, please", trans: "Um café, por favor.", hint: "Simple order", hard: false },
-        { ctx: "🔥 BOSS CHALLENGE", text: "Excuse me, do you know where the nearest subway station is?", trans: "Com licença, sabes onde fica a estação de metro mais próxima?", hint: "Clear articulation", hard: true }
+        { ctx: "Greeting", text: "How are you?", hint: "Friendly greeting", hard: false },
+        { ctx: "Thanks", text: "Thank you so much!", hint: "Express gratitude", hard: false },
+        { ctx: "Coffee", text: "One coffee, please", hint: "Simple order", hard: false },
+        { ctx: "🔥 BOSS CHALLENGE", text: "Excuse me, do you know where the nearest subway station is?", hint: "Clear articulation", hard: true }
       ],
       starters: ["Hey,", "Good", "What's"],
       middles: ["morning", "sup", "how's it"],
       endings: ["going?", "today?", "there?"]
     },
+    "en-GB": {
+      curated: [
+        { ctx: "Greeting", text: "You alright?", hint: "British casual greeting", hard: false },
+        { ctx: "Thanks", text: "Cheers, mate!", hint: "UK friendly thanks", hard: false },
+        { ctx: "Coffee", text: "Could I have a cuppa, please?", hint: "British tea/coffee slang", hard: false },
+        { ctx: "🔥 BOSS CHALLENGE", text: "Excuse me, could you tell me where the nearest underground station is?", hint: "British vocabulary (underground)", hard: true }
+      ],
+      starters: ["Right then,", "Morning,", "Alright"],
+      middles: ["mate", "chap", "lovely"],
+      endings: ["then?", "today?", "innit?"]
+    },
     "es-ES": {
       curated: [
-        { ctx: "Saludo", text: "¿Qué tal?", trans: "Tudo bem?", hint: "Saludo informal", hard: false },
-        { ctx: "Agradecimiento", text: "¡Muchas gracias!", trans: "Muito obrigado!", hint: "Agradece con energía", hard: false },
-        { ctx: "Café", text: "Un café, por favor", trans: "Um café, por favor.", hint: "Pedido básico", hard: false },
-        { ctx: "🔥 BOSS CHALLENGE", text: "Perdona, ¿sabes dónde está la estación de metro más cercana?", trans: "Desculpa, sabes onde fica a estação de metro mais próxima?", hint: "Ritmo natural", hard: true }
+        { ctx: "Saludo", text: "¿Qué tal?", hint: "Saludo informal", hard: false },
+        { ctx: "Agradecimiento", text: "¡Muchas gracias!", hint: "Agradece con energía", hard: false },
+        { ctx: "Café", text: "Un café, por favor", hint: "Pedido básico", hard: false },
+        { ctx: "🔥 BOSS CHALLENGE", text: "Perdona, ¿sabes dónde está la estación de metro más cercana?", hint: "Ritmo natural", hard: true }
       ],
       starters: ["Hola,", "Buenos", "Qué"],
       middles: ["días", "tal", "pasa"],
@@ -36,60 +58,67 @@ const LEVELS = [
     },
     "fr-FR": {
       curated: [
-        { ctx: "Salutation", text: "Salut, ça va?", trans: "Olá, tudo bem?", hint: "Salutation courante", hard: false },
-        { ctx: "Remerciement", text: "Merci beaucoup !", trans: "Muito obrigado!", hint: "Souriant", hard: false },
-        { ctx: "Café", text: "Un café, s'il vous plaît", trans: "Um café, por favor.", hint: "Poli et clair", hard: false },
-        { ctx: "🔥 BOSS CHALLENGE", text: "Excusez-moi, savez-vous où se trouve la station de métro la plus proche ?", trans: "Com licença, sabe onde fica a estação de metro mais próxima?", hint: "Liaisons fluides", hard: true }
+        { ctx: "Salutation", text: "Salut, ça va?", hint: "Salutation courante", hard: false },
+        { ctx: "Remerciement", text: "Merci beaucoup !", hint: "Souriant", hard: false },
+        { ctx: "Café", text: "Un café, s'il vous plaît", hint: "Poli et clair", hard: false },
+        { ctx: "🔥 BOSS CHALLENGE", text: "Excusez-moi, savez-vous où se trouve la station de métro la plus proche ?", hint: "Liaisons fluides", hard: true }
       ],
       starters: ["Bonjour", "Salut", "Coucou"],
       middles: ["mon ami", "ça va", "tu vas"],
       endings: ["bien ?", "ce matin ?", "ici ?"]
     }
-  },
-  {
-    name: "Trabalho & Rotina",
-    "pt-BR": {
-      curated: [
-        { ctx: "Trabalho", text: "Até logo!", trans: "Até logo!", hint: "Despedida", hard: false },
-        { ctx: "Ajuda", text: "Preciso de ajuda", trans: "Preciso de ajuda.", hint: "Útil no dia a dia", hard: false },
-        { ctx: "🔥 DESAFIO BOSS", text: "Infelizmente o cronograma tá super apertado para esta semana", trans: "Infelizmente o cronograma está super apertado para esta semana.", hint: "Mantenha o ritmo", hard: true }
-      ],
-      starters: ["Meu chefe pediu", "A gente precisa enviar", "O prazo para entregar"],
-      middles: ["esse relatório", "a planilha", "o projeto"],
-      endings: ["hoje", "amanhã", "com urgência"]
-    },
-    "en-US": {
-      curated: [
-        { ctx: "Work", text: "See you later!", trans: "Até logo!", hint: "Goodbye", hard: false },
-        { ctx: "Help", text: "I need some help", trans: "Preciso de ajuda.", hint: "Useful phrase", hard: false },
-        { ctx: "🔥 BOSS CHALLENGE", text: "Unfortunately, the schedule is very tight for this week", trans: "Infelizmente, o horário está muito apertado para esta semana.", hint: "Steady rhythm", hard: true }
-      ],
-      starters: ["We need to finish", "Can you send", "My manager asked for"],
-      middles: ["the report", "the spreadsheet", "the project"],
-      endings: ["tomorrow", "soon", "today"]
-    },
-    "es-ES": {
-      curated: [
-        { ctx: "Trabajo", text: "¡Hasta luego!", trans: "Até logo!", hint: "Despedida", hard: false },
-        { ctx: "Ayuda", text: "Necesito ayuda", trans: "Preciso de ajuda.", hint: "Básico", hard: false },
-        { ctx: "🔥 BOSS CHALLENGE", text: "Desafortunadamente, el horario está muy apretado esta semana", trans: "Infelizmente, o horário está muito apertado esta semana.", hint: "Fluidez", hard: true }
-      ],
-      starters: ["Tengo que terminar", "El jefe quiere", "Necesitamos enviar"],
-      middles: ["el informe", "los datos", "la presentación"],
-      endings: ["hoy", "pronto", "mañana"]
-    },
-    "fr-FR": {
-      curated: [
-        { ctx: "Travail", text: "À plus tard !", trans: "Até mais tarde!", hint: "Adieu", hard: false },
-        { ctx: "Aide", text: "J'ai besoin d'aide", trans: "Preciso de ajuda.", hint: "Essentiel", hard: false },
-        { ctx: "🔥 BOSS CHALLENGE", text: "Malheureusement, le planning est très serré pour cette semaine", trans: "Infelizmente, o planeamento está muito apertado para esta semana.", hint: "Liaison", hard: true }
-      ],
-      starters: ["Il faut finir", "Le patron attend", "On doit envoyer"],
-      middles: ["le dossier", "les chiffres", "le rapport"],
-      endings: ["ce soir", "vite", "demain"]
-    }
   }
 ];
+
+// NATIVE TRANSLATION DICTIONARY BASED ON USER'S MOTHER TONGUE
+const TRANSLATIONS = {
+  "pt-BR": {
+    "Tudo bem?": "Como estás?",
+    "Muito obrigado!": "Muito obrigado!",
+    "Um café, por favor": "Um café, por favor.",
+    "Com licença, você sabe onde fica a estação mais próxima?": "Com licença, sabes onde fica a estação mais próxima?",
+    "Está tudo bem?": "Está tudo bem?",
+    "Desculpe, sabe dizer-me onde fica a estação mais próxima?": "Desculpe, sabe dizer-me onde fica a estação mais próxima?",
+    "How are you?": "Como você está?",
+    "Thank you so much!": "Muito obrigado mesmo!",
+    "One coffee, please": "Um café, por favor.",
+    "Excuse me, do you know where the nearest subway station is?": "Com licença, você sabe onde fica a estação de metrô mais próxima?",
+    "You alright?": "Tudo bem / Tudo certo?",
+    "Cheers, mate!": "Valeu, meu velho!",
+    "Could I have a cuppa, please?": "Poderia me dar uma xícara (de café/chá), por favor?",
+    "Excuse me, could you tell me where the nearest underground station is?": "Com licença, você poderia me dizer onde fica a estação de metrô mais próxima?",
+    "¿Qué tal?": "Tudo bem?",
+    "¡Muchas gracias!": "Muito obrigado!",
+    "Perdona, ¿sabes dónde está la estación de metro más cercana?": "Desculpa, você sabe onde fica a estação de metrô mais próxima?",
+    "Salut, ça va?": "Olá, tudo bem?",
+    "Merci beaucoup !": "Muito obrigado!",
+    "Un café, s'il vous plaît": "Um café, por favor.",
+    "Excusez-moi, savez-vous où se trouve la station de métro la plus proche ?": "Com licença, o senhor sabe onde fica a estação de metrô mais próxima?"
+  },
+  "en-US": {
+    "Tudo bem?": "How are you?",
+    "Muito obrigado!": "Thank you so much!",
+    "Um café, por favor": "One coffee, please",
+    "Com licença, você sabe onde fica a estação mais próxima?": "Excuse me, do you know where the nearest station is?",
+    "Está tudo bem?": "Is everything alright?",
+    "Desculpe, sabe dizer-me onde fica a estação mais próxima?": "Excuse me, do you know where the nearest station is?",
+    "How are you?": "How are you?",
+    "Thank you so much!": "Thank you so much!",
+    "One coffee, please": "One coffee, please",
+    "Excuse me, do you know where the nearest subway station is?": "Excuse me, do you know where the nearest subway station is?",
+    "You alright?": "Are you alright?",
+    "Cheers, mate!": "Thanks, buddy!",
+    "Could I have a cuppa, please?": "Could I have a cup of coffee, please?",
+    "Excuse me, could you tell me where the nearest underground station is?": "Excuse me, could you tell me where the nearest subway station is?",
+    "¿Qué tal?": "How's it going?",
+    "¡Muchas gracias!": "Thank you very much!",
+    "Perdona, ¿sabes dónde está la estación de metro más cercana?": "Excuse me, do you know where the nearest subway station is?",
+    "Salut, ça va?": "Hi, how's it going?",
+    "Merci beaucoup !": "Thank you very much!",
+    "Un café, s'il vous plaît": "A coffee, please",
+    "Excusez-moi, savez-vous où se trouve la station de métro la plus proche ?": "Excuse me, do you know where the closest subway station is?"
+  }
+};
 
 const PET_DATABASE = {
   legendary: [
@@ -111,8 +140,9 @@ const PET_DATABASE = {
   ]
 };
 
-let state = JSON.parse(localStorage.getItem("pronunciagotchi_v3")) || {
+let state = JSON.parse(localStorage.getItem("pronunciagotchi_mother_v1")) || {
   petName: null,
+  nativeLang: null,
   coins: 20,
   xp: 0,
   level: 1,
@@ -123,6 +153,13 @@ let state = JSON.parse(localStorage.getItem("pronunciagotchi_v3")) || {
   completed: [],
   hatchedPet: null
 };
+
+// Prompt user for Mother Tongue on first boot
+if (!state.nativeLang) {
+  let langChoice = prompt("Qual é a sua língua materna / nativa? Digite 'pt' para Português ou 'en' para Inglês:", "pt");
+  state.nativeLang = (langChoice && langChoice.toLowerCase().startsWith("en")) ? "en-US" : "pt-BR";
+  saveState();
+}
 
 if (!state.petName) {
   let namePrompt = prompt("Escolha o nome do seu pet:", "Pipoca");
@@ -138,7 +175,7 @@ function getRequiredXP(lvl) {
 }
 
 function saveState() {
-  localStorage.setItem("pronunciagotchi_v3", JSON.stringify(state));
+  localStorage.setItem("pronunciagotchi_mother_v1", JSON.stringify(state));
   const lvlObj = LEVELS[(state.level - 1) % LEVELS.length];
   
   document.getElementById("levelBadge").textContent = `Nível ${state.level}: ${lvlObj.name}`;
@@ -232,7 +269,6 @@ function generateFreshPhrase() {
         return {
           ctx: "Conversa Dinâmica",
           text: text,
-          trans: "Treino de conversação fluida para iniciantes.",
           hint: "Fale de forma natural e contínua",
           hard: false
         };
@@ -248,7 +284,11 @@ function loadNextPhrase() {
   document.getElementById("contextTag").textContent = currentItem.ctx;
   document.getElementById("targetPhrase").textContent = currentItem.text;
   document.getElementById("phraseHint").textContent = "💡 " + currentItem.hint;
-  document.getElementById("translationBox").textContent = currentItem.trans;
+  
+  // Look up translation in user's mother tongue
+  const dict = TRANSLATIONS[state.nativeLang] || TRANSLATIONS["pt-BR"];
+  const translatedText = dict[currentItem.text] || "Tradução indisponível para esta frase gerada.";
+  document.getElementById("translationBox").textContent = "Tradução: " + translatedText;
   document.getElementById("translationBox").style.display = "none";
   
   document.getElementById("feedback").textContent = currentItem.hard ? "⚠️ FRASE BOSS: Vale mais XP! Fale com precisão." : "Toque em 🔊 para ouvir e depois 🎤 para falar!";
@@ -272,7 +312,7 @@ function toggleBlindMode() {
   const isBlind = document.getElementById("blindMode").checked;
   const el = document.getElementById("targetPhrase");
   if (isBlind) el.classList.add("blurred");
-  else el.classList.remove("blurred");
+  else el.classList.remove("blurred";)
 }
 
 function speakTarget(rate) {
