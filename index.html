@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pronunciagotchi</title>
+  <title>Pronunciagotchi - RPG de Pronúncia</title>
   <link rel="manifest" href="manifest.json" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -12,62 +12,62 @@
     <header>
       <div>
         <h1>Pronunciagotchi</h1>
-        <span id="levelBadge" class="badge">Lvl 1: Street Food & Coffee</span>
+        <span id="levelBadge" class="badge">Nível 1: Rolê & Café</span>
       </div>
       <div class="coins">🪙 <span id="coinCount">20</span></div>
     </header>
 
     <div class="xp-container">
       <div class="xp-label">
-        <span>Level Progress</span>
+        <span id="xpTitle">Progresso do Ovo</span>
         <span id="xpText">0 / 100 XP</span>
       </div>
       <progress id="xpBar" value="0" max="100"></progress>
     </div>
 
     <section class="pet-card">
-      <div id="petAvatar" class="pet">🐣</div>
-      <div id="petMood" class="mood">Ready to chat like a native!</div>
+      <div id="petAvatar" class="pet">🥚</div>
+      <div id="petMood" class="mood">Um ovo misterioso... Pratique para chocar!</div>
       <div class="bars">
-        <label>❤️ Mood: <progress id="happyBar" value="60" max="100"></progress></label>
-        <label>🍔 Fullness: <progress id="hungerBar" value="50" max="100"></progress></label>
+        <label>❤️ Humor: <progress id="happyBar" value="60" max="100"></progress></label>
+        <label>🍔 Fome: <progress id="hungerBar" value="50" max="100"></progress></label>
       </div>
       <div class="shop">
-        <button onclick="buyItem('snack', 10)">🌮 Taco (10)</button>
-        <button onclick="buyItem('glasses', 30)">😎 Shades (30)</button>
-        <button onclick="buyItem('energy', 20)">⚡ Coffee (20)</button>
+        <button onclick="buyItem('snack', 10)">coxinha 🍗 (10)</button>
+        <button onclick="buyItem('glasses', 30)">óculos 🕶️ (30)</button>
+        <button onclick="buyItem('energy', 20)">café ☕ (20)</button>
       </div>
     </section>
 
     <section class="practice-card">
       <div class="top-controls">
         <select id="langSelect" onchange="loadNextPhrase()">
-          <option value="en-US">English (Natural / Casual)</option>
-          <option value="es-ES">Spanish (Callejero / Real)</option>
-          <option value="pt-PT">Portuguese (Dia a dia)</option>
-          <option value="fr-FR">French (Familier / Courant)</option>
+          <option value="pt-BR" selected>Português (Brasil - Gírias & Dia a dia)</option>
+          <option value="en-US">Inglês (Natural / Casual)</option>
+          <option value="es-ES">Espanhol (Callejero)</option>
+          <option value="fr-FR">Francês (Familier)</option>
         </select>
 
         <label class="blind-toggle">
           <input type="checkbox" id="blindMode" onchange="toggleBlindMode()" />
-          👂 Ear-Only Mode
+          👂 Só Ouvido
         </label>
       </div>
 
       <div class="dialogue-box">
-        <span class="context-tag" id="contextTag">At a coffee shop</span>
-        <h2 id="targetPhrase">Loading...</h2>
-        <p id="phraseHint">Tip: Link the words naturally</p>
+        <span class="context-tag" id="contextTag">Na lanchonete</span>
+        <h2 id="targetPhrase">Carregando...</h2>
+        <p id="phraseHint">Dica: Fale sem travar as palavras</p>
       </div>
 
       <div class="audio-controls">
-        <button onclick="speakTarget(1.0)">🔊 Native Speed</button>
-        <button onclick="speakTarget(0.7)">🐢 Slow (0.7x)</button>
-        <button onclick="loadNextPhrase()">⏭️ Skip</button>
+        <button onclick="speakTarget(1.0)">🔊 Velocidade Real</button>
+        <button onclick="speakTarget(0.7)">🐢 Devagar (0.7x)</button>
+        <button onclick="loadNextPhrase()">⏭️ Pular</button>
       </div>
 
-      <button id="micBtn" class="mic-btn" onclick="startListening()">🎤 Tap & Speak</button>
-      <div id="feedback" class="feedback">Listen first, then reply naturally!</div>
+      <button id="micBtn" class="mic-btn" onclick="startListening()">🎤 Toque e Fale</button>
+      <div id="feedback" class="feedback">Ouça o áudio e repita naturalmente!</div>
     </section>
   </div>
 
